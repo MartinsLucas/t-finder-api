@@ -1,0 +1,34 @@
+version: '3.5'
+services:
+
+  db:
+    container_name: t-finder-database
+    image: postgres:9.6
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    env_file: t-finder.env
+    networks:
+      - falko-backend
+    ports:
+      - 5432:5432
+
+  api:
+    container_name: t-finder-api
+    build: .
+    env_file: t-finder.env
+    volumes:
+      - .:/t-finder-api
+      - /usr/local/bundle:/usr/local/bundle
+    networks:
+      - falko-backend
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+
+volumes:
+  postgres-data: {}
+
+networks:
+  falko-backend:
+    name: falko-backend
