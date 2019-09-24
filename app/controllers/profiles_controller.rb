@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: %i[show update destroy]
+  before_action :set_profile, only: %i[show update destroy fetch_username
+                                       fetch_description]
 
   # GET /profiles
   def index
@@ -38,6 +39,22 @@ class ProfilesController < ApplicationController
   # DELETE /profiles/1
   def destroy
     @profile.destroy
+  end
+
+  def fetch_username
+    if @profile.fetch_username
+      render json: @profile
+    else
+      render json: @profile.errors, status: :unprocessable_entity
+    end
+  end
+
+  def fetch_description
+    if @profile.fetch_description
+      render json: @profile
+    else
+      render json: @profile.errors, status: :unprocessable_entity
+    end
   end
 
   private
