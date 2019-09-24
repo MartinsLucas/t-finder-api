@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+john:
+  profile_name: JohnDoe
+  url: www.twitter.com/johndoe/
+  username: nil
+  description: nil
+
+mary:
+  profile_name: MaryAnn
+  url: www.twitter.com/ann2019/
+  username: Mary Ann
+  description: I love my twitter

@@ -1,0 +1,1 @@
+Shortener.charset = :alphanumcase
