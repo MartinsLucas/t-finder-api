@@ -29,7 +29,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 
 gem 'shortener', '~> 0.8.0'
 
-gem 'nokogiri', '~> 1.6', '>= 1.6.8'
+gem 'nokogiri', '~> 1.12'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
